@@ -7,37 +7,20 @@ class ListViewPage extends StatefulWidget {
 }
 
 class _ListViewPageState extends State<ListViewPage> {
+  final List<String> nombres = <String>["Numero Uno","Numero Dos","Numero Tres"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("List View"),
       ),
-      body: ListView(
-        children:<Widget> [
-          Container(
-            height: 50.0,
-            color: Colors.red,
-          ),
-
-          Container(
-            height: 50.0,
-            color: Colors.green,
-          ),
-
-          Container(
-            height: 50.0,
-            color: Colors.blue,
-          ),
-
-          Container(
-            height: 50.0,
-            color: Colors.yellow,
-          ),
-
-
-        ],
-      ),
-    );
+      body: ListView.builder(itemCount: nombres.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 60,
+            child: Center(child: Text("Texto ${nombres[index]}"),),
+          );
+        }),
+    ); 
   }
 }
